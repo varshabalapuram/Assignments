@@ -1,0 +1,46 @@
+<h3>Server Communication in Angular using HttpClient</h3>
+<div class='main' style='display: flex; justify-content:space-evenly'>
+<span>Employee id:</span><input type="text" [disabled]="isDisabled"  [(ngModel)]="emp_id"  placeholder="Deptno"  />
+Employee name:<input type="text"  [(ngModel)]="ename"  placeholder="Name"  />
+Salary :<input type="text"  [(ngModel)]="esal"  placeholder="Slary"  />
+Age<input type="text"  [(ngModel)]="age"  placeholder="age"  />
+Dept number<input type="text"  [(ngModel)]="dept_no"  placeholder="dept number"  />
+</div><hr>
+<div class='main2' style='display: flex;'>
+<div style='margin-right: 10px;'><button (click)="getemps_click()">Get Data</button></div>
+<div style='margin-right: 10px;'><input type="button"  value="Add Dept" (click)="addemp_click()"  /></div>
+<div style='margin-right: 10px;'><input type="button"  value="Update Dept" (click)="updateemp_click()"  /></div>
+</div>
+<br/><br/>
+
+<table  border="2" cellpadding="5" cellspacing="0">
+
+  <tr>
+    <th>employee id</th>
+
+    <th>employee Name</th>
+    <th>employee Salary</th>
+    <th>employee age</th>
+    <th>Dept Number</th>
+
+
+  </tr>
+
+  <tr *ngFor="let user of userArray">
+      <td>{{ user.id }}</td>
+      <td>{{ user.employee_name }}</td>
+      <td>{{ user.employee_salary }}</td>
+
+      <td>{{ user.employee_age }}</td>
+      <td>{{ user.dept_num }}</td>
+
+      <td>
+        <a  href="javascript:void(0);"  (click)="selectemp_click( user.id  )">Select</a> |
+        <a  href="javascript:void(0);"  (click)="removeemp_click( user.id  )">Remove</a>
+    </td>
+     
+
+
+  </tr>
+</table>
+
