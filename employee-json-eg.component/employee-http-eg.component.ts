@@ -44,9 +44,9 @@ export class EmployeeHttpEgComponent implements OnInit {
     });
   }
  
-  removeemp_click(dno:number)
+  removeemp_click(eid:number)
   {
-    this.httpObj.delete<any>(this.url + "/" + dno).subscribe( (response:any) =>{
+    this.httpObj.delete<any>(this.url + "/" + eid).subscribe( (response:any) =>{
       console.log("Requested emp details are deleted from  server.");
       alert("Requested emp details are deleted from  server.");
       this.getemps_click();  // to get all the updated results
@@ -56,9 +56,9 @@ export class EmployeeHttpEgComponent implements OnInit {
   }
 
 
-  selectemp_click(dno:number)
+  selectemp_click(eid:number)
   {
-    this.httpObj.get<any>(this.url + "/" + dno).subscribe( (response:any) =>{
+    this.httpObj.get<any>(this.url + "/" + eid).subscribe( (response:any) =>{
 
       let empObj = response;
       this.emp_id =   empObj.id;
