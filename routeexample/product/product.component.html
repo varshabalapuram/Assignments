@@ -1,0 +1,39 @@
+<h3>Collection of Products</h3>
+<div class='main' style='display: flex;'>
+<div>Product ID:<input  type="text"  [(ngModel)]="prod_id"><br></div>
+<div>Product Name:<input  type="text"  [(ngModel)]="prod_name"/><br></div>
+<div>Product Price:<input  type="text"  [(ngModel)]="prod_price"/><br></div>
+<div>Product category:<input  type="text"  [(ngModel)]="category"/><br></div>
+<div>Product Quantity:<input  type="text"  [(ngModel)]="qty"><br></div>
+</div>
+<br>
+<button (click)='get_product()'>Get Product</button>
+
+<button (click)='add_product()'>Add Product</button>
+<br>
+<span style="background-color: red;">{{result}}<span>
+    <br>
+<table border="2" cellspacing="0"  cellpadding="5" width="400">
+
+<tr>
+      <th>Product Id</th>
+      <th>Product Name</th>
+      <th>Product price</th>
+      <th>Product category</th>
+      <th>Product qty</th>
+</tr>
+
+<tr *ngFor="let prod of products">
+    <td> {{prod.pid}} </td>
+    <td> {{prod.pname}} </td>
+    <td> {{prod.price}} </td>
+    <td> {{prod.category}} </td>
+    <td> {{prod.qty}} </td>
+    <td style='width:80x'>
+        <a  href="javascript:void(0);"  (click)="remove_product( prod.pid)"><img width=20px src="./../assets/Capture.PNG"/>
+        </a>
+    </td>
+</tr>
+
+</table>
+
