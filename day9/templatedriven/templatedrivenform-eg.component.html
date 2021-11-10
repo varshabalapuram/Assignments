@@ -1,0 +1,61 @@
+
+   
+<style>
+	.c1 {   color : Red;  }
+</style>
+
+<h3> Angular Form Validations using  Template Driven  </h3>
+<hr/>
+
+
+<form #form1="ngForm">
+
+      First Name  :
+      <input   name="t1"   #t1="ngModel"
+              required="true"   [(ngModel)]="fname"  />
+
+      <span class="c1" *ngIf="t1.invalid && t1.dirty">
+          First Name is required
+      </span>
+      <br><br>
+
+      Last Name  :
+      <input   name="t2"   #t2="ngModel"
+              required="true"   [(ngModel)]="lname"  />
+
+      <span class="c1" *ngIf="t2.invalid && t2.dirty">
+          Last Name is required
+      </span>
+      <br><br>
+
+      City Name  :
+      <input  name="t3"  #t3="ngModel"
+             minlength="3"   maxlength="10"
+            [(ngModel)]="city" />
+
+      <span class="c1"  *ngIf="t3.invalid && t3.dirty">
+          City name allows characters between 3 to 10
+          </span>
+      <br><br>
+
+      E-mail  :
+      <input  name="t4"  #t4="ngModel"
+             email="true" [(ngModel)]="email" />
+
+      <span class="c1"  *ngIf="t4.invalid && t4.dirty">
+      Enter valid email address
+      </span>
+      <br><br>
+
+      Pincode :
+      <input  name="t5"  #t5="ngModel"   pattern="\d{6}"
+              [(ngModel)]="pincode" />
+
+      <span class="c1"  *ngIf="t5.invalid && t5.dirty">
+          Pincode should allow six digits
+      </span>
+      <br><br>
+
+      <input type="button" [disabled]="form1.invalid"  (click)="register_click()"  value="Register" />
+
+</form>
